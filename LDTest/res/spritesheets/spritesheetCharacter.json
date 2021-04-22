@@ -1,0 +1,63 @@
+{
+  "spriteSheetName": "SPRITESHEET_CHARACTERS",
+  "textureName": "TEXTURE_CHARACTERS",
+  "textureFilename": "res//textures//textureCharacter.png",
+  "frameMap": {
+    "WALK_00": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 32,
+      "pivotX": 0.0,
+      "pivotY": 0.0,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "anchorPoints": []
+    },
+    "WALK_01": {
+      "x": 32,
+      "y": 0,
+      "w": 32,
+      "h": 32,
+      "pivotX": 0.0,
+      "pivotY": 0.0,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "anchorPoints": []
+    },
+    "WALK_02": {
+      "x": 64,
+      "y": 0,
+      "w": 32,
+      "h": 32,
+      "pivotX": 0.0,
+      "pivotY": 0.0,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "anchorPoints": []
+    },
+    "WALK_03": {
+      "x": 96,
+      "y": 0,
+      "w": 32,
+      "h": 32,
+      "pivotX": 0.0,
+      "pivotY": 0.0,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "anchorPoints": []
+    }
+  },
+  "spriteMap": {
+    "walk": {
+      "loopAnimation": true,
+      "frameDuration": 100,
+      "animationSprites": [
+        "WALK_00",
+        "WALK_01",
+        "WALK_02",
+        "WALK_03"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+aseprite -b --ignore-empty D:\dev\java\ludumdare\test\projects\LDTest\raw\textures\dwarf.aseprite --save-as "D:\dev\java\ludumdare\test\projects\LDTest\raw\spritesheets\{layer}\{tag} 00.png"
