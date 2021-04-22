@@ -2,8 +2,8 @@
 	"AudioMetaDefinitions" : [
 	
 		{
-			"soundname":"SOUND_MUSIC_SONG1",
-			"filepath":"res//audio//musicSong1.ogg"
+			"soundname":"",
+			"filepath":""
 		}
 		
 	]

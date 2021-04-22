@@ -1,12 +1,18 @@
 <!-- ====================================================================== 
      21.04.2021
 
-     Project     :	LD Test Project
-     Description :	Creates a JAR program file, an executable file and bundles a JRE into a final package
+     Project     :	empty LintfordCore game
+     Description :	An empty project for use with the LintfordCore engine
+     
+     Don't forget to fill in the following variables below:
+     
+     + name
+     + project.name
+     + main-class (fully qualified)
 
 ====================================================================== -->
 
-<project name="LDTest" basedir="." default="main">
+<project name="" basedir="." default="main">
 
 	<!-- External dependency directories -->
 	<property name="LDLibrary.dir">d:/dist/libs/LDLibrary</property>
@@ -17,9 +23,9 @@
 
 	<!-- Porject variables -->
 	<property name="build-drive">d:</property>
-	<property name="project.name">LDTest</property>
+	<property name="project.name"></property>
 
-	<property name="main-class">com.ruse.ldtest.BaseGame</property>
+	<property name="main-class"></property>
 
 	<!-- Input directories -->
 	<property name="input.src.dir" value="src" />
