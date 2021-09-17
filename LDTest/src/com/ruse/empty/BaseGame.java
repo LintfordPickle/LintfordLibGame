@@ -4,6 +4,8 @@ import org.lwjgl.opengl.GL11;
 
 import net.lintford.library.GameInfo;
 import net.lintford.library.core.LintfordCore;
+import net.lintford.library.core.graphics.fonts.BitmapFontManager;
+import net.lintford.library.core.graphics.fonts.FontUnit;
 
 public class BaseGame extends LintfordCore {
 
@@ -12,7 +14,7 @@ public class BaseGame extends LintfordCore {
 	// ---------------------------------------------
 
 	private static final String WINDOW_TITLE = "LintfordCore Game";
-	private static final String APPLICATION_NAME = "unnamed";
+	private static final String APPLICATION_NAME = "Game Template";
 
 	private static final int WINDOW_WIDTH = 640;
 	private static final int WINDOW_HEIGHT = 480;
@@ -20,6 +22,8 @@ public class BaseGame extends LintfordCore {
 	// ---------------------------------------------
 	// Variables
 	// ---------------------------------------------
+
+	private FontUnit mCoreText;
 
 	// ---------------------------------------------
 	// Constructor
@@ -58,9 +62,20 @@ public class BaseGame extends LintfordCore {
 	}
 
 	@Override
+	protected void onInitializeBitmapFontSources(BitmapFontManager pFontManager) {
+		super.onInitializeBitmapFontSources(pFontManager);
+
+		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TEXT_NAME,
+				"res/fonts/fontCoreText.json");
+		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TITLE_NAME,
+				"res/fonts/fontCoreTitle.json");
+	}
+
+	@Override
 	protected void onLoadGLContent() {
 		super.onLoadGLContent();
 
+		mCoreText = mResourceManager.fontManager().getFontUnit(BitmapFontManager.SYSTEM_FONT_CORE_TITLE_NAME);
 	}
 
 	@Override
@@ -73,6 +88,13 @@ public class BaseGame extends LintfordCore {
 	protected void onDraw() {
 		super.onDraw();
 
+		final var lTextScale = 1.f;
+		final var lText = "Hello LintfordLibGame";
+		final var lTextWidth = mCoreText.getStringWidth(lText, lTextScale);
+
+		mCoreText.begin(mHUD);
+		mCoreText.drawText(lText, -lTextWidth * .5f, 0, -0.01f, 1.f);
+		mCoreText.end();
 	}
 
 	// -------------------------------
