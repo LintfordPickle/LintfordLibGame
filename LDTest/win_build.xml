@@ -1,7 +1,7 @@
 <!-- ====================================================================== 
-     21.04.2021
+     28.09.2021
 
-     Project     :	empty LintfordCore game
+     Project     :	An Empty Game Project
      Description :	An empty project for use with the LintfordCore engine
      
      Don't forget to fill in the following variables below:
@@ -12,7 +12,7 @@
 
 ====================================================================== -->
 
-<project name="" basedir="." default="main">
+<project name="LDGame" basedir="." default="main">
 
 	<!-- External dependency directories -->
 	<property name="LDLibrary.dir">d:/dist/libs/LDLibrary</property>
@@ -23,9 +23,9 @@
 
 	<!-- Porject variables -->
 	<property name="build-drive">d:</property>
-	<property name="project.name"></property>
+	<property name="project.name">LDGame</property>
 
-	<property name="main-class"></property>
+	<property name="main-class">com.ruse.empty.BaseGame</property>
 
 	<!-- Input directories -->
 	<property name="input.src.dir" value="src" />
