@@ -16,8 +16,8 @@ public class BaseGame extends LintfordCore {
 	private static final String WINDOW_TITLE = "LintfordCore Game";
 	private static final String APPLICATION_NAME = "Game Template";
 
-	private static final int WINDOW_WIDTH = 640;
-	private static final int WINDOW_HEIGHT = 480;
+	private static final int WINDOW_WIDTH = 800;
+	private static final int WINDOW_HEIGHT = 600;
 
 	// ---------------------------------------------
 	// Variables
@@ -32,6 +32,7 @@ public class BaseGame extends LintfordCore {
 	public BaseGame(GameInfo pGameInfo, String[] pArgs, boolean pHeadless) {
 		super(pGameInfo, pArgs, pHeadless);
 
+		mIsFixedTimeStep = true;
 	}
 
 	// ---------------------------------------------
@@ -65,10 +66,8 @@ public class BaseGame extends LintfordCore {
 	protected void onInitializeBitmapFontSources(BitmapFontManager pFontManager) {
 		super.onInitializeBitmapFontSources(pFontManager);
 
-		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TEXT_NAME,
-				"res/fonts/fontCoreText.json");
-		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TITLE_NAME,
-				"res/fonts/fontCoreTitle.json");
+		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TEXT_NAME, "res/fonts/fontCoreText.json");
+		BitmapFontManager.CoreFonts.AddOrUpdate(BitmapFontManager.SYSTEM_FONT_CORE_TITLE_NAME, "res/fonts/fontCoreTitle.json");
 	}
 
 	@Override
@@ -76,6 +75,12 @@ public class BaseGame extends LintfordCore {
 		super.onLoadGLContent();
 
 		mCoreText = mResourceManager.fontManager().getFontUnit(BitmapFontManager.SYSTEM_FONT_CORE_TITLE_NAME);
+	}
+
+	@Override
+	protected void onHandleInput() {
+		super.onHandleInput();
+
 	}
 
 	@Override
@@ -92,8 +97,13 @@ public class BaseGame extends LintfordCore {
 		final var lText = "Hello LintfordLibGame";
 		final var lTextWidth = mCoreText.getStringWidth(lText, lTextScale);
 
+		final float lTimeMod = 0.0005f;
+		final float sin = (float) Math.sin(mGameTime.totalTimeMilli() * lTimeMod);
+		final float cos = (float) Math.cos(mGameTime.totalTimeMilli() * lTimeMod);
+
 		mCoreText.begin(mHUD);
-		mCoreText.drawText(lText, -lTextWidth * .5f, 0, -0.01f, 1.f);
+		final float lMagnitude = 200.f;
+		mCoreText.drawText(lText, (int) (-lTextWidth * .5f + (sin * lMagnitude)), (int) (0 + (sin * cos * lMagnitude)), -1.01f, 1.f);
 		mCoreText.end();
 	}
 
@@ -149,7 +159,5 @@ public class BaseGame extends LintfordCore {
 
 		var lBaseGame = new BaseGame(lGameInfo, args, false);
 		lBaseGame.createWindow();
-
 	}
-
 }
